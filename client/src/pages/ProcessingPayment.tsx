@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Loader from '../components/Loader';
 
 const ProcessingPayment: React.FC = () => {
     const navigate = useNavigate();
-    const [status, setStatus] = useState('Procesando pago...');
 
     useEffect(() => {
         const storedPayment = localStorage.getItem('paymentInfo');
