@@ -1,0 +1,336 @@
+.headerTitlePayment{
+    font-family: "lato";
+    font-size: 20px;
+    line-height: 32px;
+    width: 100%;
+}
+
+.containerPaymentI{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.containerAllInfo{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
+}
+
+.containerPaymentMethod{
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    user-select: none;
+    border-radius: 2px;
+    vertical-align: middle;
+    background-color: white;
+    padding: 0px 16px;
+    min-height: 48px;
+    padding-bottom: 15px;
+    border-radius: 3px !important;
+}
+
+.textPaymentMethod{
+    text-align: left;
+    margin-left:0px;
+    font-size: 18px;
+    width: calc(100% - 80px);
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+}
+
+.inlineCheckP{
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.MuiIconButton-label input{
+    top: 0;
+    left: 0;
+    width: 100%;
+    cursor: inherit;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    z-index: 1;
+    position: absolute;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.MuiIconButton-label span{
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    border: 1px solid #343e5b;
+    height: 20px;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0));
+    margin-top: 10px;
+}
+
+
+
+.MuiIconButton-label .activePM{
+    background-color: rgb(0, 167, 167);
+
+    border: 1px solid #00A7A7;
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0));
+}
+
+.MuiIconButton-label .activePM:before{
+    width: 20px;
+    height: 20px;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    background-image: radial-gradient(#fff,#fff 28%,transparent 32%);
+}
+
+.cardsInRow{
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-left: 40px;
+}
+
+.cardsInRow img{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2px;
+    margin-top: 2px;
+    height: 24px;
+}
+
+.pickedPM{
+    font-size: 20px;
+    border-left: 4px solid rgb(0, 167, 167) !important;
+}
+
+.containerInfoPayment{
+    width: 100%;
+    border-top: 1px solid #e2e2e2;
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 3px !important;
+}
+
+.inputPayments{
+    text-align: left;
+    font: inherit;
+    color: #737376;
+    background: rgba(0,0,0,0);
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 95%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    box-sizing: border-box;
+    padding-right: 15px;
+    padding-bottom: 12px;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1.125;
+    font-size: 18px;
+    font-family: "lator";
+    letter-spacing: normal;
+    border-bottom: 1px solid #737376;
+    box-sizing: border-box;
+}
+
+.containerInputPayment{
+    position: relative;
+}
+
+.miniTextPayment{
+    width: 100%;
+    color: rgb(115, 115, 118);
+    font-size: 12px;
+    font-family: "lator";
+    line-height: 24px;
+}
+
+.iconInputCC{
+    width: 25px;
+    height: auto;
+    position: absolute;
+    left: 2px;
+    top: 4px;
+}
+
+.containerInputPaymentInline{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+
+.iconInputCVV{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+
+.iconInfo{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+
+.iconInfoI{
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.textHP{
+    width: 100%;
+    color: rgb(80, 80, 85);
+    font-size: 14px !important;
+    font-family: "lato";
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.disclaimerText{
+    font-size: 12px;
+    font-family: "lato";
+    color: rgb(50, 50, 55);
+    line-height: 24px;
+    margin-left: 12px;
+    letter-spacing: 0px;
+}
+
+.disclaimerText .link{
+    margin: 0px 3px;
+    line-height: 24px;
+    color: rgb(50, 50, 55);
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.condicionesComp{
+    font-size: 12px;
+    font-family: 'Lato', sans-serif;
+    text-decoration: underline;
+    color: #505055;
+}
+
+.errorImg{
+    height: 9.25rem;
+    width: 10.625rem;
+}
+
+.importantText{
+    color: #000;
+    font-size: 1.1875rem;
+    font-family: "Lato";
+    margin: 0;
+    width: 90%;
+    margin-left: 15px;
+}
+
+.importantTextRed{
+    color: #de0108;
+    font-size: 1.rem;
+    font-family: "Lator";
+    margin: 0;
+    width: 90%;
+    margin-left: 15px;
+
+}
+
+.outside{
+    color: #de0108;
+    text-decoration: underline;
+
+}
+
+.incorrect{
+    color: #de0108;
+
+}
+.bigAssFooter2{
+
+}
+
+.bankLogo{
+    width: 160px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.brandLogo{
+    width: 100px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.textBanking{
+    font-family: "Arial";
+    font-size: 14px;
+    text-align: justify;
+    width: 95%;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.textBankingmini{
+    font-family: "Arial";
+    font-size: 12px;
+    text-align: justify;
+    width: 95%;
+    padding: 10px;
+}
+
+.continueB{
+    text-align: center;
+    padding: 4px 8px 4px 8px;
+    font-family: "Helvetica";
+    border: 1px solid gray;
+    background-color: lightgray;
+    width: 100px;
+}
+
+.titleT{
+    font-weight: bold;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.inputnormal{
+    width: 80%;
+    padding: 3px;
+}
+
+.inputBanking{
+
+}
+
+
+.footerTxt{
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+}

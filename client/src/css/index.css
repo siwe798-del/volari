@@ -1,0 +1,2336 @@
+@font-face {
+	font-family: 'lato';
+	src: url('../assets/fonts/Lato-Bold.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'lator';
+	src: url('../assets/fonts/Lato-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'static bold';
+	src: url('../assets/fonts/Static\ Bold.woff')  format('woff');
+}
+
+
+*{
+    margin: auto;
+    padding: auto;
+}
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    position: relative;
+}
+
+
+
+.Wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.header{
+    height: 48px;
+    background-color: #8A2BE2;
+    padding: 0;
+}
+
+.logo{
+    padding: 10px 15px;
+    float: left;
+    line-height: 10px;
+}
+
+.logo img{
+    height: 30px;
+}
+
+.menuTop{
+    color: white;
+    float: right;
+    padding-top:14px;
+    height: 48px;
+    margin-right: 16px;
+}
+
+.user-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.slider{
+    background-image: url(../assets/slider/bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 410px;
+    width: 100%;
+    position: relative;
+}
+/*  background-image: linear-gradient(to left,rgba(66, 66, 66, 0), rgba(0, 0, 0, 0.6)); */
+.sliderHover{
+
+    height: 410px;
+    width: 100%;
+    position: absolute;
+}
+
+.bigTextSlider{
+	font-family: 'static bold';
+    font-size: 1.75rem;
+    line-height: 32px;
+    color: white;
+    text-align: center;
+    margin-top: 120px;
+
+}
+
+.midTextSlider{
+	font-family: 'lato';
+    color: white;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 24px;
+    font-weight: 700;
+
+}
+
+.btnSlider{
+    text-align: center;
+    background: #8A2BE2;
+    border: 0;
+    line-height: 16px;
+    color: #fff;
+    display: table;
+    font-size: .75rem;
+    font-family: "lato",Verdana,Geneva,Tahoma,sans-serif;
+    min-width: 180px;
+    width: auto;
+    height: auto;
+    padding: 16px 24px 16px 24px;
+    line-height: 16px;
+    border-radius: 4px;
+    margin: 0 auto;
+    font-weight: 700;
+    font-style: normal;
+    background-repeat: no-repeat;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+.containerFlight{
+    font-family: "lato",Verdana,Geneva,Tahoma,sans-serif;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 1px 8px 0 rgba(145,155,166,0.5);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 92%;
+    height: auto;
+}
+
+.dots{
+    position: absolute;
+    bottom: 55px;
+    width: 50px;
+    height: auto;
+    left: calc(50% - 25px);
+}
+
+.centralContainer{
+    width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+    background-color: #f3f2f2;
+}
+
+.headerCF{
+    font-family: "lato",Verdana,Geneva,Tahoma,sans-serif;
+    width: 100%;
+    height: auto;
+    font-weight: 700;
+    font-size: 1rem;
+    height: 44px;
+    line-height: 14px;
+    padding: 8px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    color: #8A2BE2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleHCF{
+    float: left;
+    width: calc(100% - 50px);
+    padding-left: 20px;
+}
+
+.arrowHCF{
+    float: right;
+    width: 24px;
+    padding-right: 20px;
+}
+
+.separator{
+    border-color: #dedddd;
+    border-top: 1px solid #eee;
+    width: calc(100% - 40px);
+}
+
+.innerContainer{
+    width: calc(100% - 40px);
+    padding-top: 10px;
+}
+
+.radioContainer{
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    position: relative;
+    font-size: .75rem;
+}
+
+.radioContainer .radio-mark:after {
+    width: 7px;
+    height: 7px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+input[type="radio"]:checked ~ .radio-mark:after {
+    display: block;
+    visibility: hidden;
+    background-color: #8A2BE2;
+    outline:none;
+}
+
+.radioR{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 3px;
+    margin-top: 3px;
+    opacity: 0;
+    padding-right:20px;
+}
+
+.txtRadio{
+    padding-right:20px;
+}
+
+.marked{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px #343e5b solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    width: 17px;
+    height: 17px;
+    border: 1px #8A2BE2 solid;
+}
+
+.whiteR{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 5px;
+    margin-top: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    background-color: #fff;
+    height: 9px;
+    width: 9px;
+}
+
+.greenR{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border: 1px #8A2BE2 solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    background-color: #8A2BE2;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+input[type='radio']:after {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #fff;
+    border: 0px;
+    border-color: white;
+    visibility: hidden;
+    outline:none;
+}
+
+
+.radioContainer .radio-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px #343e5b solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+.radioContainer .radio-mark {
+    width: 17px;
+    height: 17px;
+    border: 1px #8A2BE2 solid;
+}
+
+.radioContainer input:checked ~ .radio-mark {
+    background-color: #8A2BE2;
+    border: 1px #8A2BE2 solid;
+}
+
+.containerTr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.containerTr .origen {
+    height: 72px;
+    border: solid 1px #dedddd;
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px 0 0 0;
+}
+.containerTr .indicador {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #343e5b;
+    z-index: 5;
+    border-radius: 12px;
+    left: calc(50% - 12px);
+    text-align: center;
+}
+
+.containerTr .destino {
+    height: 72px;
+    border: solid 1px #dedddd;
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 3px 0 0;
+    border-left: 0;
+    border-left-style: none;
+    width: 49.9%;
+}
+
+.containerTr .placeholder-ciudad-titulo {
+    font-size: 1.5rem;
+    color: #323237;
+    margin-bottom: 0px;
+}
+
+.containerTr .indicador i {
+    color: #fff;
+    font-size: 1.0625rem;
+    vertical-align: middle;
+}
+
+.containerTr .placeholder-ciudad {
+    font-size: .625rem;
+    text-align: center;    
+    color: #323237;
+    letter-spacing: 0;
+    margin-top: 0px;
+}
+
+.contenedorv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.contenedorv .booking-fechas {
+    height: 49px;
+    border: solid 1px #dedddd;
+    border-top: 0;
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 0 0 3px;
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1rem;
+    letter-spacing: 0;
+    color: #323237;
+    font-family: "lator";
+}
+
+.contenedorv .pasajero-clase {
+    height: 49px;
+    border: solid 1px #dedddd;
+    border-top: 0;
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 0 3px 0;
+    border-left: 0;
+    width: 49.9%;
+    font-weight: 700;
+    font-size: .75rem;
+    line-height: 1rem;
+    letter-spacing: 0;
+    color: #323237;
+}
+
+.cod-descuento-empty {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.cod-descuento .icono-add {
+
+    
+    width: 0.275rem;
+    margin-right: 6px;
+    font-size: .875rem;
+}
+
+.cod-descuento .texto-add {
+    font-size: .75rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: #737376;
+    margin-left: 10px;
+}
+
+.touchpoints {
+    margin: 0 auto;
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 400;
+    color: #323237;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    padding-bottom: 8px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.aviancaToursMobile{
+    margin: 0 auto;
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 400;
+    color: #323237;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    padding-bottom: 8px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.opcionesUnderV{
+    padding-bottom: 16px;
+}
+
+a {
+    color: #343e5b;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #181d2a;
+    text-decoration: underline;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+.touchpoints i, .aviancaToursMobile i {
+    font-size: .875rem;
+    color: #8A2BE2;
+    vertical-align: sub;
+}
+
+.opcionesUnderV{
+    width: 88%;
+}
+
+.containerNews{
+    width: 100%;
+    height: auto;
+    font-family: "lato";
+}
+
+.containerNews h2, .containerNews h3, .containerNews h4, .containerNews h5 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.33;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #1b1b1b;
+    display: block;
+}
+
+.containerNews .subtitle {
+    padding: 0 16px;
+    margin-bottom: 40px;
+    font-size: .875rem;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: center;
+    font-family: "lator";
+}
+
+.container-cards{
+    width: 95%;
+}
+
+.card-general {
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+
+.card-general .imagen {
+    border-top: 1px solid #f3f2f2;
+    border-left: 1px solid #f3f2f2;
+    border-right: 1px solid #f3f2f2;
+    height: 224px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.containerNews .card-general .imagen img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.containerNews .card-general .descripcion {
+    border: 1px solid #f3f2f2;
+    border-radius: 0 0 3px 3px;
+}
+
+.card-general .descripcion {
+    background-color: #fff;
+    border-bottom: 1px solid #f3f2f2;
+    border-left: 1px solid #f3f2f2;
+    border-right: 1px solid #f3f2f2;
+    border-top: 1px solid transparent;
+    padding: 24px 16px 24px 24px;
+    min-height: 165px;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    padding-bottom: 0px;
+}
+
+.containerNews .card-general .descripcion h2, .containerNews .card-general .descripcion h3, .containerNews .card-general .descripcion h4,
+ .containerNews .card-general .descripcion h5, .containerNews .card-general .descripcion h6 {
+    margin: 0;
+    margin-bottom: 7px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.33;
+    color: #1b1b1b;
+    text-align: left;
+}
+
+.card-general .descripcion a i {
+    vertical-align: middle;
+    color: #8A2BE2;
+}
+
+.line-link-right i.outerLink {
+    font-size: 1rem;
+    padding-bottom: 3px;
+    margin-left: 0;
+}
+.line-link-right i {
+    vertical-align: middle;
+    color: #8A2BE2;
+    margin-left: -4px;
+    font-size: 1.125rem;
+}
+
+.owl-dots {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 22px;
+    text-align: center;
+    justify-content: center;
+}
+
+.owl-dots .owl-dot.active {
+    width: 8px;
+    background-color: #323237;
+}
+
+.owl-dots .owl-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border: solid 1px #323237;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.tab-acordeon.panel:first-child {
+    border-top: 1px solid #dedddd;
+}
+.tab-acordeon {
+    width: calc(100% - 48px);
+    margin-left: 12px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 0;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.tab-acordeon .encabezado-acordeon {
+    font-family: "lator";
+    background: #fff;
+    height: 48px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid #dedddd;
+    display: flex;
+    align-items: center;
+    color: #8A2BE2;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+    position: relative;
+}
+
+.tab-acordeon .encabezado-acordeon.collapsed:after {
+    content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20id%3D%22a%22%20d%3D%22M16.59%208.59L12%2013.17%207.41%208.59%206%2010l6%206%206-6z%22%2F%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cmask%20id%3D%22b%22%20fill%3D%22%23fff%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cuse%20xlink%3Ahref%3D%22%23a%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fmask%3E%0A%20%20%20%20%20%20%20%20%3Cuse%20fill%3D%22%23000%22%20fill-opacity%3D%22.7%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cg%20fill%3D%22%238A2BE2%22%20mask%3D%22url(%23b)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A');
+    width: 24px;
+    height: 24px;
+    display: block;
+    top: 13px;
+    position: absolute;
+    right: 24px;
+}
+
+
+.footerLegal .lista-inferior{
+    margin: 16px 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f3f2f2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    font-family: "lator";
+}
+
+.footerLegal .lista-inferior :first-child {
+    width: 100%;
+    text-align: center;
+}
+
+.footerLegal .lista-inferior li {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+
+.footerLegal .lista-inferior li a,.footerLegal .lista-inferior li .separador {
+    font-size: .75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #323237;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS DE MODALES */
+.modalAv{
+    font-family: "lator";
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    position: fixed;
+    height: 100vh; /* viewport height */
+    top: 0;
+    left: 0;
+    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: .3s; /* don't forget to set a duration! */
+    overflow-y: auto;
+}
+
+.close::after {
+    content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20id%3D%22a%22%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cmask%20id%3D%22b%22%20fill%3D%22%23fff%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cuse%20xlink%3Ahref%3D%22%23a%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fmask%3E%0A%20%20%20%20%20%20%20%20%3Cuse%20fill%3D%22%239A9999%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cg%20fill%3D%22%23565555%22%20mask%3D%22url(%23b)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A');
+}
+
+.modal-booking-title {
+    font-family: "lator";
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    color: #1b1b1b;
+    float: left;
+}
+
+.modalHeader{
+    padding: 15px;
+}
+
+.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+}
+
+.formFrom{
+    background-image: none;
+    background-size: 0;
+    height: 40px;
+    border-radius: 3px;
+    border: solid 1px #505055;
+    background-color: #fff;
+    color: #737376;
+    width: 100%;
+    padding-left: 12px;
+    background-color: transparent;
+    padding-right: 35px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    padding: 0;
+    transition: all .3s ease-out;
+    background: no-repeat center bottom,center calc(99%);
+    box-shadow: none;
+    text-overflow: ellipsis;
+    font-family: "lator";
+    width: 90%;
+}
+
+.containerModalData{
+    width: 98%;
+    margin-left: 18px;
+}
+
+.rowSugg{
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    text-align: left;
+    font-family: "lator";
+    border-bottom: 1px solid #dedddd;
+    border-left: 1px solid #f9f8f8;
+    border-right: 1px solid #f9f8f8;
+}
+
+.smallSText{
+    
+    font-size: 0.7rem;
+    margin-top: 3px;
+}
+
+.bigSText{
+    padding-top: 5px;
+}
+
+.containerSR{
+    height: calc(100% - 200px);
+    overflow-y:scroll;
+}
+
+.bigAirportName{
+    font-size: 1.8rem;
+    color: #323237;
+    font-family: "lato";
+    text-align: center;
+}
+
+.miniAirportName{
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 400;
+    color: #737376;
+    line-height: 1.25rem;
+}
+
+.inlineInput{
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+
+.week-container {
+    -webkit-backdrop-filter: blur(9.3px);
+    backdrop-filter: blur(9.3px);
+    box-shadow: 0 8px 9px -7px rgba(0,0,0,0.2), inset 0 0 0 0 #d0d0d0;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+    max-width: 329px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "lato";
+}
+
+
+.week-container .week {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-items: stretch;
+    row-gap: 2px;
+    align-items: start;
+    font-weight: 700;
+    font-size: .875rem;
+    text-transform: capitalize;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 382px;
+}
+
+.week-container .week .week-day {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthContainer{
+ width: 90%;
+}
+
+.monthTittle{
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    max-width: 329px;
+    display: block;
+    margin: 10px auto 0;
+    margin-top: 20px;
+}
+
+.daysMonth{
+    max-width: 329px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 8px 0;
+    justify-items: stretch;
+    align-items: start;
+    margin: 0 auto;
+    padding: 28px 0 28px 0;
+}
+
+.dayIn{
+    width: 39px;
+    height: 39px;
+    font-weight: 700;
+    font-size: .75rem;
+    position: relative;
+    place-self: center;
+}
+
+.grey{
+    color: rgba(0,0,0,0.21);
+}
+
+.selectedDay{
+    width: 38px;
+    height: 39px;
+    background-color: #323237;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    color: #fff;
+    z-index: 2;
+    padding: 12px;
+    margin-left: -12px;
+}
+
+.number {
+    width: 106px;
+    position: absolute;
+    text-align: center;
+    right: 0;
+    top: 0;
+    margin-top: 14px;
+}
+
+.number .plus {
+    right: 0;
+}
+
+.number .value {
+    position: absolute;
+    width: 42px;
+    font-size: 2rem;
+    line-height: 48px;
+    color: #505055;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    font-size: 2rem;
+    line-height: 3.125rem;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.number .plus, .number .minus {
+    border: 1px solid #1b1b1b;
+    border-radius: 3px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 13px;
+    padding-top: 1.5px;
+    cursor: pointer;
+    color: #1b1b1b;
+}
+
+.number .minus[disabled], .promo-booking .passenger .controls .number .plus[disabled] {
+    cursor: not-allowed !important;
+    opacity: .3;
+}
+
+.headerPickF{
+    align-items: center;
+    background-color: white;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-top: solid 4px #de0108;
+    box-shadow: 0 2px 4px #919ba633, 0 1px 10px #919ba61f, 0 4px 5px #919ba624;
+    display: flex;
+    height: 3.5rem;
+    justify-content: center;
+}
+
+.iconPC{
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.trip-locations{
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 0.594rem;
+    padding-right: 0.75rem;
+}
+
+.from-location{
+    margin-right: 0.5rem;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 1rem;
+}
+
+.to-location{
+    margin-left: 0.5rem;
+}
+
+.vertical-line{
+    border-left: solid 1.008px lightgray;
+    display: inline-block;
+    height: 1.25rem;
+    vertical-align: middle;
+}
+
+.dates{
+    display: inline-block;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.departure-date{
+    display: inline-block;
+    font-size: 12px;
+}
+
+.dash {
+    display: inline-block;
+    font-size: .75rem;
+    height: unset;
+    vertical-align: middle;
+    width: auto;
+}
+
+.return-date{
+    display: inline-block;
+    font-size: 12px;
+}
+
+.icon-edit{
+    background: unset;
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 1.25rem;
+    padding-left: 0.75rem;
+    vertical-align: middle;
+    width: 1.25rem;
+}
+
+.header2FP{
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    text-align: left;
+}
+
+.calendar-container{
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 20px;
+    display: flex;
+}
+
+.only-mobile.departure{
+    color: black;
+    font-size: 12px;
+}
+
+.only-mobile.cities{
+    color: black;
+    font-size: 16px;
+}
+
+.expander-separator{
+    flex-grow: 1;
+}
+
+.containerPricesFNextDays{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.vueloInfoContainer{
+    background-color: white;
+    border-radius: 4px;
+    flex-direction: column;
+    padding: 0.75rem 0.5rem 0.5rem;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    width: 90%;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contentInsideVC{
+    padding-left: 0.65rem;
+}
+
+.miniTextVueloC{
+    color: gray;
+    font-size: 12px;
+    line-height: 1rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 4px;
+}
+
+.startHourF{
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'lato';
+    font-size: 14px;
+    width: 40px;
+    margin-right: 10px;
+}
+.lineSeparatorHours{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 110px);
+    height: 4px;
+    border-top: 1px solid lightgray;
+    margin-top: 9px;
+    box-sizing: border-box;
+
+}
+.endHour{
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'lato';
+    font-size: 14px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.operatorByText{
+    width: 100%;
+    text-align: left;
+    font-size: 10px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.finalFPrice{
+    font-family: 'lato';
+    width: 100%;
+    text-align: right;
+    font-weight: 700;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.headerPriceVIC{
+    width: 100%;
+    height: 20px;
+    position: relative;
+
+}
+
+.tagHPVIC{
+    background-color: #2f8741;
+    border-radius: 0 4px 0 8px;
+    padding: 0.25rem 0.5rem;
+    align-items: center;
+    color: white;
+    height: 0.75rem;
+    justify-content: center;
+    text-align: center;
+    font-family: "lator";
+    font-size: 11px;
+    width: auto;
+    float: right;
+    width: 84px;
+}
+
+.condicionesTarif{
+    font-size: 16px;
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: inherit;
+    height: inherit;
+    flex: 1;
+    overflow: hidden;
+    margin: 0;
+    height: auto;
+    background-color: white;
+    box-sizing: content-box;
+    display: block;
+    margin: 0;
+    border-radius: 4px;
+    width: 84%;
+    font-family: "lato";
+    text-align: left;
+}
+
+.mat-content{
+    align-items: center;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    flex-basis: 0;
+    margin-right: 0px;
+    margin: 0px;
+    width: 80%;
+
+}
+
+.mat-content:before{
+    content: url('../assets/IC_conditions.svg');
+    height: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.mat-expansion-indicator{
+    text-align: center;
+    width: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    margin: 0px;
+    float: right;
+    margin-top: -17px;
+}
+
+.mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+}
+
+.flipi{
+    transform: rotate(180deg);
+    margin-right: 15px;
+
+}
+
+.condicionesTarif img{
+    width: 100%;
+    height: auto;
+}
+
+.footerBook{
+    background-color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.textFooterBook{
+    font-size: .75rem;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.33;
+    text-align: center;
+    width: auto;
+    width: 100%;
+}
+
+.modalBooking{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    z-index: 100;
+    font-family: 'lator'; background-color: #f3f2f2; height: auto; min-height: 100%; position: relative;
+}
+
+
+.goBackTarifa{
+    width: 100%;
+
+}
+
+.backIconT{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    margin: 20px;
+    float: left;
+}
+
+.backIconT::after {
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    vertical-align: middle;
+}
+
+.goBackText{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 90px);
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    padding-right: 50px;
+    box-sizing: border-box;
+    color: darkslategray;
+}
+
+.contentsContainerBook{
+    width: 100%;
+    height: 26px;
+}
+
+.container-tabs-cabin{
+    border-bottom: 1.008px solid #c4c4c4;
+    display: flex;
+    justify-content: center;
+}
+
+.cabin-active{
+    flex: 0 1 auto;
+    position: relative;
+}
+
+.cabin-tab{
+    min-width: 4.5rem;
+    padding-bottom: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    padding: 0 0.875rem 0.5rem 1.125rem;
+    text-transform: uppercase;
+    font-family: "lator";
+    letter-spacing: .025rem;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.cabin-active:after{
+    bottom: 0;
+    content: "";
+    height: 0.061rem;
+    margin-bottom: -0.063rem;
+    position: absolute;
+    width: 100%;
+    background-color: #323237;
+}
+
+.containerOptionCabine{
+    box-shadow: 0 0 1px #919ba624, 0 0 1px #919ba61f, 0 0 3px #919ba633;
+    flex-direction: column;
+    border-radius: 8px;
+    width: 93%;
+    background-color: white;
+    height: auto;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.headerOPc{
+    font-family: "lato";
+    font-size: 22px;
+    letter-spacing: 0;
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.subtitleOPc{
+    width: 100%;
+    text-align: center;
+    font-family: "lator";
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.inlineEspecs{
+    width: 100%;
+    height: auto;
+    text-align: left;
+}
+
+.inlineEspecs img{
+    display: inline-block;
+    vertical-align: top;
+    height: 1rem;
+    width: 1.0313rem;
+    margin-left: 20px;
+}
+
+.textInlineE{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5rem;
+    font-size: .685rem;
+}
+
+.continue-button{
+    width: 100%;
+    text-align: center;
+    border: 1px solid #1b1b1b !important;
+    border-radius: 0px 0px 9px 9px;
+    background: #fff !important;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    width: inherit;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
+.underline{
+    color: #737376;
+    text-decoration: underline;
+}
+
+.smallTextPickOPc{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    font-family: "lator";
+    text-align: center;
+}
+
+.bigTextPickOPc{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    font-family: "lato";
+    text-align: center;
+    letter-spacing: .025rem;
+    margin: 0 0 0 0.25rem;
+}
+
+.orangebtn{
+    width: 100%;
+    text-align: center;
+    border: 1px solid #f57c00 !important;
+    background-color: #f57c00;
+    border-radius: 0px 0px 9px 9px;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    width: inherit;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
+.lineTopC{
+    width: 96%;
+    height: 1px;
+    margin-bottom: 4px;
+    margin-top: -2px;
+}
+
+.passed-icon{
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.loadingIco{
+    height: 150px;
+    margin-top: -50px;
+}
+
+.containerLoagin{
+    background-color: white;
+    padding: 10px;
+}
+
+.loadingText{
+        font-family: "Lato";
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+}
+
+
+.continueB{
+    border-radius: 20px;
+}
+
+
+/* BANCO DE BOGOTÃƒÂ */
+
+.modalBooking #bogcc{
+    height: 40px;
+    width: auto;
+    margin-top: 20px;
+}
+
+button.bogcc{
+    background-color: #0040a8;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #0040a8;
+}
+
+input.bogcc{
+    padding: 8px 16px 8px 16px;
+    border: 1px solid #0040a8;
+    font-size: 18px;
+}
+
+
+input.bogcc:focus {
+    outline: none !important;
+    border: 1px solid #0040a8;
+  }
+
+/* NUBANK */
+.modalBooking #nubankcc{
+    height: 80px;
+    width: auto;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+button.nubankcc{
+    background-color: #8303d2;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #8303d2;
+}
+
+input.nubankcc{
+    padding: 8px 16px 8px 16px;
+    border: 1px solid #8303d2;
+    font-size: 18px;
+}
+
+
+input.nubankcc:focus {
+    outline: none !important;
+    border: 1px solid #8303d2;
+  }
+
+  
+/* BANBO POPULAR */
+  
+  .modalBooking #bpop{
+  
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+button.bpop{
+    background-color: #04873a;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #04873a;
+}
+
+input.bpop{
+    padding: 8px 16px 8px 16px;
+    border: 1px solid #04873a;
+    font-size: 18px;
+}
+
+
+input.bpop:focus {
+    outline: none !important;
+    border: 1px solid #04873a;
+  }
+
+  
+/* BANCOLOMBIA */
+  
+.modalBooking #bancolcc{
+  
+    width: 200px;
+    margin-left: 20px;
+}
+
+button.bancolcc{
+    background-color: #fdda24;
+    color: black;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #fdda24;
+}
+
+input.bancolcc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+
+
+
+  
+
+  /* BANCO BBVA */
+  
+.modalBooking #bbvacc{
+  
+    margin-left: 20px;
+}
+
+button.bbvacc{
+    background-color: #1973b8;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #1973b8;
+}
+
+input.bbvacc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #1973b8;
+    font-size: 16px;
+}
+
+
+input.bbvacc:focus {
+    outline: none !important;
+    border: 1px solid #1973b8;
+  }
+
+/* BANCO DE OCCIDENTE */
+  
+  .modalBooking #bocc{
+  
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+button.bocc{
+    background-color: #008acc;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #008acc;
+}
+
+input.bocc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #008acc;
+    font-size: 16px;
+}
+
+
+input.bocc:focus {
+    outline: none !important;
+    border: 1px solid #008acc;
+  }
+
+/* BANCO AV VILLAS */
+
+.modalBooking #avcc{
+  
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+button.avcc{
+    background-color: #0547d6;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #0547d6;
+}
+
+input.avcc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #0547d6;
+    font-size: 16px;
+}
+
+
+input.avcc:focus {
+    outline: none !important;
+    border: 1px solid #0547d6;
+  }
+
+
+  
+/* BANCO DAVIVIENDA */
+
+.modalBooking #davcc{
+  
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+button.davcc{
+    background-color: #ed1c27;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ed1c27;
+}
+
+input.davcc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ed1c27;
+    font-size: 16px;
+}
+
+
+input.davcc:focus {
+    outline: none !important;
+    border: 1px solid #ed1c27;
+  }
+
+
+  
+/* BANCO CONAVI */
+
+.modalBooking #conavicc{
+  
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+button.conavicc{
+    background-color: #f5d743;
+    color: black;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #f5d743;
+}
+
+input.conavicc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #f5d743;
+    font-size: 16px;
+}
+
+
+input.conavicc:focus {
+    outline: none !important;
+    border: 1px solid #f5d743;
+  }
+
+  
+/* BANCO TUYA */
+
+.modalBooking #tuyacc{
+  
+    margin-left: 20px;
+    margin-top:5px;
+    width: 200px;
+}
+
+button.tuyacc{
+    background-color: #ed1c29;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ed1c29;
+}
+
+input.tuyacc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ed1c29;
+    font-size: 16px;
+}
+
+
+input.tuyacc:focus {
+    outline: none !important;
+    border: 1px solid #ed1c29;
+  }
+
+    
+/* BANCO citibank */
+
+.modalBooking #citiacc{
+  
+    margin-left: 10px;
+    margin-top:10px;
+    width: 200px;
+}
+
+button.citiacc{
+    background-color: #056dae;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #056dae;
+}
+
+input.citiacc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #056dae;
+    font-size: 16px;
+}
+
+
+input.citiacc:focus {
+    outline: none !important;
+    border: 1px solid #056dae;
+  }
+
+      
+/* BANCO credibcc */
+
+.modalBooking #credibcc{
+  
+    margin-left: 10px;
+    margin-top:10px;
+    width: 200px;
+}
+
+button.credibcc{
+    background-color: #ffb600;
+    color: black;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ffb600;
+}
+
+input.credibcc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+
+input.credibcc:focus {
+    outline: none !important;
+    border: 1px solid black;
+}
+
+/* BANCO FALABELLA */
+
+.modalBooking #falacc{
+    margin-left: 10px;
+    margin-top:10px;
+    width: 200px;
+}
+
+button.falacc{
+    background-color: #ee5601;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ee5601;
+}
+
+input.falacc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ee5601;
+    font-size: 16px;
+}
+
+input.falacc:focus {
+    outline: none !important;
+    border: 1px solid #ee5601;
+}
+
+/* BANCO scotiabank colpatria */
+
+.modalBooking #colpcc{
+    margin-left: 10px;
+    margin-top:10px;
+    width: 200px;
+}
+
+button.colpcc{
+    background-color: #ec111a;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ec111a;
+}
+
+input.colpcc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ec111a;
+    font-size: 16px;
+}
+
+
+input.colpcc:focus {
+    outline: none !important;
+    border: 1px solid #ec111a;
+} 
+
+/* BANCO ITAU */
+
+.modalBooking #itaucc{
+    margin-left: 20px;
+    margin-top:20px;
+    width: 70px;
+}
+
+button.itaucc{
+    background-color: #ec7404;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ec7404;
+}
+
+input.itaucc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ec7404;
+    font-size: 16px;
+}
+
+input.itaucc:focus {
+    outline: none !important;
+    border: 1px solid #ec7404;
+} 
+
+/* BANCO NEQUI */
+
+.modalBooking #nequicc{
+    margin-left: 20px;
+    margin-top:20px;
+    width: 70px;
+}
+
+button.nequicc{
+    background-color: #ff2f73;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ff2f73;
+}
+
+input.nequicc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #ff2f73;
+    font-size: 16px;
+}
+
+input.nequicc:focus {
+    outline: none !important;
+    border: 1px solid #ff2f73;
+} 
+
+/* BANCO CAJA SOCIAL */
+
+.modalBooking #cajasoc{
+    margin-left: 20px;
+    margin-top:20px;
+    width: 70px;
+}
+
+button.cajasoc{
+    background-color: #00b2fb;
+    color: white;
+    padding: 6px 12px 6px 12px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #00b2fb;
+}
+
+input.cajasoc{
+    padding: 2px 4px 2px 4px;
+    border: 1px solid #00b2fb;
+    font-size: 16px;
+}
+
+
+input.cajasoc:focus {
+    outline: none !important;
+    border: 1px solid #00b2fb;
+} 
+
+.contenedorv .redM{
+    border: 1px solid red;
+    color: red;
+}
+
+.containerTr .redM{
+    border: 1px solid red;
+    color: red;
+}
+
+.containerTr .redM .placeholder-ciudad-titulo{
+    color: red;
+
+}
+.containerTr .redM .placeholder-ciudad{
+    color: red;
+
+}
+
+input.redM{
+    border-bottom: 1px solid red;
+}
+
+
+input.redMF{
+    border: 1px solid red;
+}
+
+input.greenM{
+    border-bottom: 1px solid #00a7a7;
+}
+
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+input[type=checkbox].redM{
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(255,0,0,1);
+    -moz-box-shadow: 0px 0px 0px 1px rgba(255,0,0,1);
+    box-shadow: 0px 0px 0px 1px rgba(255,0,0,1);
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.bgModalBanking{
+    background-color: black;
+    opacity: 0.7;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+
+.modalBookingBanking{
+    width: 90%;
+    height: 90%;
+    left: calc(5% - 10px);
+    position: fixed;
+    top: 5%;
+    z-index: 100;
+    font-family: 'lator'; 
+    background-color: white; 
+    height: auto;
+    padding: 10px;
+    min-height: 370px;
+    border-radius: 5px;
+}
+
+.loadingIconAvioncito img{
+    margin-top: calc(50% - 150px);
+    border-radius: 50%;
+}
+
+/* PAGE FROM - UNTIL - CALENDAR */
+
+.pageFrom,
+.pageUntil,
+.pageCalendar{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 10;
+    font-family: "lator";
+    transform: translateY(-940px);
+    -webkit-transform: translateY(-940px);
+}
+
+.pageFrom .top,
+.pageUntil .top{
+    position: relative;
+    padding: 14px 15px;
+}
+
+.pageFrom .top label,
+.pageUntil .top label,
+.pageCalendar .msj label{
+    font-size: 20px;
+    float: left;
+}
+
+.pageFrom .top .closeIcon,
+.pageUntil .top .closeIcon,
+.pageCalendar .msj .closeIcon{
+    position: absolute;
+    right: 20px;
+    width: 40px;
+}
+
+.pageFrom .top .closeIcon ion-icon,
+.pageUntil .top .closeIcon ion-icon,
+.pageCalendar .msj .closeIcon ion-icon{
+    font-size: 28px;
+    color: #000000b6;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pageFrom input[type=text],
+.pageUntil input[type=text]{
+    width: 90%;
+    height: 42px;
+    padding-left: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    border: 1px solid #0000007a;
+    margin-top: 41px;
+    margin: 14px 15px;
+}
+
+.pageFrom .contentFrom,
+.pageUntil .contentUntil{
+    margin-top: 30px;
+    height: 700px;
+    overflow: auto;
+    margin: 14px 15px;
+}
+
+.pageFrom .contentFrom::-webkit-scrollbar, 
+.pageUntil .contentUntil::-webkit-scrollbar{
+    width: 8px;
+}
+
+.pageFrom .contentFrom::-webkit-scrollbar-track, 
+.pageUntil .contentUntil::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.pageFrom .contentFrom::-webkit-scrollbar-thumb, 
+.pageUntil .contentUntil::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 6px;
+}
+
+.pageFrom .contentFrom::-webkit-scrollbar-thumb:hover, 
+.pageUntil .contentUntil::-webkit-scrollbar-thumb:hover{
+    background: #555;
+}
+
+.pageFrom .contentFrom .content span,
+.pageUntil .contentUntil .content span{
+    font-size: 16px;
+}
+
+.pageFrom .contentFrom .content p,
+.pageUntil .contentUntil .content p{
+    font-size: 11.2px;
+    margin-top: 3px;
+}
+
+.pageFrom .content,
+.pageUntil .content{
+    border-bottom: 1px solid #dedddd;
+    border-left: 1px solid #f9f8f8;
+    border-right: 1px solid #f9f8f8;
+    padding: 10px 0 15px 10px;
+    cursor: pointer;
+}
+
+.pageFrom.showPage{
+    transform: translateY(0px);
+    transition: .3s ease-in-out;
+}
+
+.pageUntil{
+      opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.pageUntil.showPage{
+      opacity: 1;
+}
+
+
+.pageUntil.showPage,
+.pageCalendar.showPage{
+    transform: translateY(0px);
+}
+
+/*!|--- -- Estilos para el calendario -- ---|!*/
+
+.pageCalendar{
+    padding: 14px 0px;
+    /* transform: translateY(0px); */
+}
+
+.pageCalendar label{
+    padding-left: 20px;
+}
+
+.contentCalendar .contentInput{
+    margin-top: 1%;
+    width: 400px;
+    max-width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contentCalendar .dateInput{
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+}
+
+.contentCalendar .dateInput span{
+    position: absolute;
+    top: 8px;
+    left: 35px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #0000007a;
+}
+
+.contentCalendar .dateInput input[type=date]{
+    max-width: 100%;
+    width: 85%;
+    height: 58px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+    padding-top: 5px;
+    border: none;
+    box-shadow: 1px 1px 3px #0000003b;
+    border-radius: 12px;
+    font-weight: bold;
+    font-family: "lator";
+}
+
+.contentCalendar .button{
+    width: 100%;
+    display: flex;
+    -webkit-margin-top: 70px;
+    margin-top: 70px;
+}
+
+.contentCalendar .button .dateChoose{
+    width: 300px;
+    height: 39px;
+    max-width: 90%;
+    border: none;
+    background-color: #de0108;
+    font-weight: bolder;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}

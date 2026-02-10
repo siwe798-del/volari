@@ -1,0 +1,227 @@
+.headerReview{
+    width: 100%;
+    height: 3rem;
+    padding: 0;
+    background-color: #de0108;
+}
+
+.headerReview img{
+    display: inline-block;
+    vertical-align: top;
+    height: 1.6rem;
+    padding-top: 0.65rem;
+    padding-left: 15px;
+}
+
+.progressBar{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 13px;
+    margin-left: calc(50% - 90px);
+}
+
+.cicleExterior{
+    background-color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.circleMiddle{
+    
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #de0108;
+    position: absolute;
+    top:2px;
+    left:2px;
+}
+
+.circlePicked{
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    margin-top: 1px;
+    font-family: 'lator';
+    font-size: 12px;
+    color: #de0108;
+}
+
+.circleNotPicked{
+    width: 18px;
+    height: 18px;
+    background-color: de0108;
+    border-radius: 50%;
+    margin-top: 1px;
+    font-family: 'lator';
+    font-size: 12px;
+    color: #fff;
+}
+
+.dottedInline{
+    width: 18px;
+    height: 1px;
+    border-top: 2px dotted white;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 12px;
+}
+
+.options{
+    border: 1px solid #323237;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+}
+
+.calendar-container2{
+    float: left;
+    padding-left: 20px;
+    margin-top: -2px;
+}
+
+.containerInfoVuelo{
+    background-color: white;
+    border: 1px solid #00a7a7;
+    border-radius: 4px;
+    margin: 1rem 0 0.5rem;
+    padding-top: 1rem;
+    position: relative;
+    width: 90%;
+}
+
+.pickedVueloChuloV{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 1px solid #00a7a7;
+    border-bottom-left-radius: 7px;
+    background-color: #00a7a7;
+    padding: 2px;
+    padding-bottom: 0px;
+}
+
+
+.pickedVueloChuloV img{
+    height: 1rem;
+    width: 1rem;
+}
+
+.footerCInfoV{
+    width: 100%;
+    background-color: #d9f2f2;
+    position: absolute;
+    bottom: 0px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+.textLeftFCI{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 90px);
+    font-family: 'lator';
+    color: black;
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+.imgRightFCI{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.imgRightFCI img{
+    display: inline-block;
+    vertical-align: top;
+    height: 1rem;
+    margin-left: 0.125rem;
+    width: 1rem;
+}
+
+.protectedContainer{
+    width: 90%;
+    background-color: #f2f8fa;
+    border-radius: 4px;
+    border: 1px solid #007aa6;
+    box-sizing: border-box;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+    margin: 1.5rem 0 0;
+
+}
+
+.iconHolderPC{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.iconHolderPC img{
+    height: 1.25rem;
+    margin-top: 0.125rem;
+    width: 1.25rem;
+}
+
+.textHolderPC{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 25px);
+    text-align: left;
+    font-size: 12px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.textLFooterC{
+    float: left;
+    font-family: "lator";
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.textRFooterC{
+    float: right;
+    font-size: 18px;
+    font-family: "lato";
+    text-align: right;
+    margin-right: 10px;
+}
+
+.continueTripBAF{
+    min-height: 3rem;
+    min-width: 8.75rem;
+    font-family: "lato";
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: .5px;
+    padding: 0.75rem 1rem;
+    border-radius: 3.2px;
+    background-color: #de0108;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    width: 90%;
+}
+
+.bigAssFooter{
+    
+    box-shadow: 0 2px 4px #919ba633, 0 1px 10px #919ba61f, 0 4px 5px #919ba624;
+}
+
+.disabledBtn{
+    background: #dedddd;
+    color: #969696;
+    cursor: not-allowed;
+}

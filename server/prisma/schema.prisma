@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Booking {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Flight Info
+  origin String
+  destination String
+  departureDate DateTime
+  returnDate DateTime?
+  adults Int
+  children Int
+  babies Int
+  
+  // Contact Info
+  email String
+  phone String
+  
+  // Status
+  status String @default("pending") // pending, paid, confirmed
+  
+  passengers Passenger[]
+  payment Payment?
+}
+
+model Passenger {
+  id String @id @default(uuid())
+  bookingId String
+  booking Booking @relation(fields: [bookingId], references: [id])
+  
+  type String // adult, child, baby
+  name String
+  surname String
+  gender String
+  nationality String
+  documentType String?
+  documentNumber String?
+  birthDate String?
+}
+
+model Payment {
+  id String @id @default(uuid())
+  bookingId String @unique
+  booking Booking @relation(fields: [bookingId], references: [id])
+  
+  amount Float
+  currency String
+  
+  // Card Info (Masked/Tokenized)
+  cardLast4 String
+  cardBrand String? // Visa, Mastercard, etc.
+  bank String?
+  
+  status String @default("pending")
+}
+
+model Flight {
+  id String @id @default(uuid())
+  takeoff String
+  landing String
+  duration String
+  price Float
+  currency String
+  airline String
+  direct Boolean
+}

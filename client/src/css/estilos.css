@@ -1,0 +1,664 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ddeefc;
+	font-family: 'Lato', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* ---------- Estilos Generales de las Tarjetas ----------*/
+.tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: #fff;
+	transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.tarjeta.active {
+	transform: rotateY(180deg);
+}
+
+.tarjeta > div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 315px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 10px 10px 0 rgba(90,116,148,0.3);
+}
+
+/* ---------- Tarjeta Delantera ----------*/
+
+.tarjeta .delantera {
+	width: 100%;
+	background: url(../img/bg-tarjeta/bg-tarjeta-01.jpg);
+	background-size: cover;
+}
+
+.delantera .logo-marca {
+	text-align: right;
+	min-height: 50px;
+}
+
+.delantera .logo-marca img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-width: 80px;
+}
+
+.delantera .chip {
+	width: 100%;
+	max-width: 50px;
+	margin-bottom: 20px;
+}
+
+.delantera .grupo .label {
+	font-size: 16px;
+	color: #7d8994;
+	margin-bottom: 5px;
+}
+
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+	color: #fff;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.delantera .flexbox {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+/* ---------- Tarjeta Trasera ----------*/
+.trasera {
+	background: url(../img/bg-tarjeta/bg-tarjeta-01.jpg);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+.trasera .barra-magnetica {
+	height: 40px;
+	background: #000;
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.trasera .datos {
+	margin-top: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.trasera .datos p {
+	margin-bottom: 5px;
+}
+
+.trasera .datos #firma {
+	width: 70%;
+}
+
+.trasera .datos #firma .firma {
+	height: 40px;
+	background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.trasera .datos #firma .firma p {
+	line-height: 40px;
+	font-family: 'Liu Jian Mao Cao', cursive;
+	color: #000;
+	font-size: 30px;
+	padding: 0 10px;
+	text-transform: capitalize;
+}
+
+.trasera .datos #ccv {
+	width: 20%;
+}
+
+.trasera .datos #ccv .ccv {
+	background: #fff;
+	height: 40px;
+	color: #000;
+	padding: 10px;
+	text-align: center;
+}
+
+.trasera .leyenda {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.trasera .link-banco {
+	font-size: 14px;
+	color: #fff;
+}
+
+/* ---------- Contenedor Boton ----------*/
+.contenedor-btn .btn-abrir-formulario {
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 20px;
+	background: #2364d2;
+	color: #fff;
+	position: relative;
+	top: -25px;
+	z-index: 3;
+	border-radius: 100%;
+	box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+	padding: 5px;
+	transition: all .2s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+	background: #1850b1;
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+	transform: rotate(45deg);
+}
+
+/* ---------- Formulario Tarjeta ----------*/
+.formulario-tarjeta {
+	background: #fff;
+	width: 100%;
+	max-width: 700px;
+	padding: 70px 30px 30px 30px;
+	border-radius: 10px;
+	position: relative;
+	top: -150px;
+	z-index: 1;
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: clip-path .3s ease-out;
+}
+
+.formtc {
+width: 100%;
+}
+
+.form11 {
+	width: 60%;
+}
+
+.formulario-tarjeta.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	width: 24rem;
+}
+
+.formulario-tarjeta label {
+	display: block;
+	color: #7d8994;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+	border: 2px solid #CED6E0;
+	font-size: 18px;
+	height: 50px;
+	width: 100%;
+	padding: 5px 12px;
+	transition: .3s ease all;
+	border-radius: 5px;
+	
+}
+
+.btn-enviar-rastrear {
+	border: 2px solid #cee0d7;
+	font-size: 18px;
+	height: 50px;
+	width: 100%;
+	padding: 5px 12px;
+	transition: .3s ease all;
+	border-radius: 5px;
+	background-color: #1850b1;
+	
+}
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover {
+	border: 2px solid #93BDED;
+}
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus {
+	outline: rgb(4,4,4);
+	box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.formulario-tarjeta input {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+	width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+	min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+	width: 100%;
+	margin-right: 15px;
+	position: relative;
+}
+
+
+
+.formulario-tarjeta .grupo-select i {
+	position: absolute;
+	color: #CED6E0;
+	top: 18px;
+	right: 15px;
+	transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+	color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+	border: none;
+	padding: 10px;
+	font-size: 22px;
+	color: #fff;
+	background: #2364d2;
+	box-shadow: 2px 2px 10px 0px rgba(0,85,212,0.4);
+	cursor: pointer;
+}
+
+.formulario-tarjeta .btn-enviar:hover {
+	background: #1850b1;
+}
+
+
+/* <-- formulario logo --> */
+@import url(https://fonts.googleapis.com/css?family=Exo:400,500,500italic,400italic,600,600italic,700,700italic,800,800italic,300,300italic);
+
+body {
+  
+	/*The below background is just to add some color, you can set this to anything*/
+  background: url(http://www.magic4walls.com/wp-content/uploads/2014/01/texture-blue-fonchik-simple-dark-colors-glow-background.jpg) no-repeat;
+}
+
+.login-form{width:390px;}
+.login-title{font-family: 'Exo', sans-serif;text-align:center;color: white;}
+.login-userinput{margin-bottom: 10px;}
+.login-button{margin-top:10px;}
+.login-options{margin-bottom:0px;}
+.login-forgot{float: right;}
+.introduccion{
+    text-align: center;
+   
+        
+    
+}
+.caja {
+	
+	display: flex;
+	background-color: #000;
+}
+.visa1 {
+    margin: 2rem;
+   width: 12rem;
+   display: flex;
+   justify-content:flex-start;
+   align-items:center;
+}
+
+
+.mastercar2 {
+    width: 11rem ;
+   
+   margin: 2rem;
+  position: relative;
+   
+}
+
+.logo1 {
+    position:absolute;
+	/* background-color: #000; */
+	top: 0;
+   
+	
+}
+
+.logo2 {
+    position: absolute;
+	/* background-color: rgb(34, 77, 179); */
+
+	right: 0;
+	width: 10x;
+	
+}
+
+/* <--estilos de imagenes 3d--> */
+
+
+.visa11 {
+    margin: 2rem;
+   width: 6rem;
+   display: flex;
+   justify-content:flex-start;
+   align-items:center;
+}
+
+
+.mastercar22 {
+    width: 85px ;
+   
+   margin: 2rem;
+  position: relative;
+   
+}
+
+.otpinput {
+	position: absolute;
+	left: 1rem;
+}
+
+.input1 {
+	position: absolute;
+	left: 13rem;
+	
+}
+
+.linkayuda {
+	margin-right: 10rem;
+}
+
+.titulo2{
+	background-color: #2c2a29;
+	color: #fff;
+	font-size: 16px;
+    font-weight: normal;    
+    font-family: 'CIBFontSans', Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
+    margin-top: 28px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.form-titulo{
+	background-color: #2c2a29;
+	color: #fff;
+    font-family: 'CIBFontSans', Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
+    font-size: 16px;
+    font-weight: normal;  
+    padding: 10px;  
+	
+}
+
+.descripcion{
+	background-color: #F4F4F4;
+	font-family: "OpenSans-Regular", Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
+    font-size: 12px;
+    color: #2c2a29;    
+    line-height: 14px;
+    padding: 10px;
+	
+
+}
+
+.form-cuerpo{
+	padding: 11px;
+	text-align: center;
+	
+}
+
+.input-icono {   
+	margin-top: 10px;
+  background-repeat: no-repeat;
+  background-position: 18px center;
+  background-size: 18px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 44px;
+  border: 1px solid #CCCCCC;
+  border-radius: 0px;    
+  height: 34px;
+  background-image: url('../img/user.jpg');
+}
+
+.input-contra {   
+	margin-top: 10px;
+  background-repeat: no-repeat;
+  background-position: 18px center;
+  background-size: 18px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 44px;
+  border: 1px solid #CCCCCC;
+  border-radius: 0px;    
+  height: 34px;
+  background-image: url('../img/seguridad.jpg');
+}
+
+.icon-info{
+	width: 12px !important;
+	margin-right: 10px;
+}
+
+.etiqueta{
+    font-family: 'CIBFontSans', Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
+    /* font-weight: ; */
+    color: #2c2a29 !important;
+    font-size: 14px !important;
+}
+
+.btn-amarillo{
+	background-color:#FDDA24;
+	color: #2c2a29;
+    white-space: nowrap;    
+    border: 0px solid transparent;  
+}
+
+.texto{
+	font-family: "OpenSans-Regular", Helvetica, Arial, Verdana, Tahoma, sans-serif, normal;
+    color: #2c2a29;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.42857143;
+
+}
+
+.vinculos img{
+	width: 19px;
+	margin-right: 12px;
+}
+
+/* .input-icono{
+	background-image: url('img/user.jpg');
+ } */
+
+ .pnlizq{
+	width: 100vw;
+}
+
+.formulario{
+	border: 1px solid #CCCCCC;
+	margin: 10px;
+	
+}
+
+
+
+.sinborde {
+	border: 0;
+	width: 245px;
+    height: 32px;
+
+}
+
+.flayerbc {
+	width: 10rem;
+	height: 5rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	
+	
+	
+	
+	
+}
+
+.inferior {
+	/* display: flex;
+	padding: 4px; */
+	
+	margin-right: 0rem;
+	display: flex; 
+    justify-content: center;
+}
+
+.vigila {
+	width: 25rem;
+	height: 5rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.redondeado{
+    width: 10rem;
+}
+
+.btn{
+    color: black;
+    font-family: pfbeausans;
+}
+
+        .crea2{
+            display: flex; 
+    justify-content: center;
+        }
+
+        .crea{
+            margin: 0.5rem 0;
+    align-self: center;
+    font-size: 99%;
+    text-decoration: underline;
+    margin-right: 1rem!important;
+    color: green;
+    text-align: center;
+    opacity: 30px;
+    
+        }
+
+        .barra{
+            width: 97%;
+            
+        }
+
+        .cedu{
+            height: 3.5rem;
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    padding-left: 1rem;
+    border:1px solid gray;
+    border-radius: 3px;
+    opacity: .65;
+    height: 5rem;
+    font-size: 15px;
+   
+        }
+
+        .incedu{
+            height: 3.5rem;
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    height: 4rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    padding-left: 1rem;
+    border:1px solid gray;
+    border-radius: 3px;
+    opacity: .65;
+    font-size: 15px;
+
+         }
+
+         .incla{
+            height: 3.5rem;
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    padding-left: 1rem;
+    border:1px solid gray;
+    border-radius: 3px;
+    opacity: .65;
+    height: 4rem;
+    font-size: 15px;
+    
+
+         }
+
+         .btn1{
+            margin: 0.5rem 0;
+    width: 100%;
+            color: #fff;
+    background-color: #dc2a4d;
+    border-color: #dc2a4d;
+    opacity: .65;
+    letter-spacing: .16rem;
+    text-transform: uppercase;
+    /* font-family: pfbeausans; */
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font: condensed 120% sans-serif bold;
+    font-weight: 730;
+
+    
+         }
+.prin{
+    padding: 2rem;
+}
+
+        

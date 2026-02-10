@@ -1,0 +1,222 @@
+/* @font-face {
+	font-family: 'lato';
+	src: url('../assets/fonts/Lato-Bold.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'lator';
+	src: url('../assets/fonts/Lato-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'static bold';
+	src: url('../assets/fonts/Static\ Bold.woff')  format('woff');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+.mensaje{
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 40px;
+
+}
+
+h3{
+    font-size: 23px;
+    font-weight: 400;
+}
+
+body{
+    background-color: #f5f3f3;
+}
+/* 
+.vuelos{
+    background-color: white;
+    width: 90%;
+    border-radius: 20px;
+    height: 150px;
+    margin: auto;
+    box-shadow: 3px 2px 8px rgba(166, 166, 166, 0.5);
+    text-align: center;
+    margin-top: 15px;
+    cursor:pointer;
+}
+
+.bodyVuelo{
+    margin-top: 5%;
+}
+
+.oferta{
+    width: 40%;
+    color: white;
+    
+   margin-left: 60%;
+   margin-top: 2px;
+   margin-bottom: 5px;
+    background-color: rgb(240, 1, 1);
+    font-size: 16px;
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+
+
+}
+
+.centro{
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+#hora{
+    font-weight: 600;
+} */
+
+.vuelos{
+    width: 95%;
+    background-color: white;
+    margin: auto;
+    box-shadow: 3px 2px 8px rgba(166, 166, 166, 0.5);
+
+}
+
+.vueloInfoContainer{
+    box-shadow: 3px 2px 8px rgba(166, 166, 166, 0.5);
+
+    background-color: white;
+    border-radius: 4px;
+    flex-direction: column;
+    padding: 0.75rem 0.5rem 0.5rem;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+    color:inherit;
+    font:inherit;
+    width: 90%;
+    margin-top: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+.contentInsideVC{
+    padding-left: 0.65rem;
+}
+
+.tagHPVIC{
+    background-color: red;
+    border-radius: 0 4px 0 8px;
+    padding: 0.25rem 0.5rem;
+    align-items: center;
+    color: white;
+    height: 0.75rem;
+    justify-content: center;
+    text-align: center;
+    font-family: "lator";
+    font-size: 11px;
+    width: auto;
+    float: right;
+    width: 84px;
+}
+
+.miniTextVueloC{
+    width: 100%;
+    color: gray;
+    font-size: 12px;
+    line-height: 1rem;
+    text-align: center;
+    width: 100%;
+    padding-top: 4px;
+}
+
+.operatorByText{
+    width: 100%;
+    text-align: left;
+    font-size: 10px;
+    color: gray;
+    margin-top: 10px;
+}
+
+.finalFPrice{
+    font-family: 'lato';
+    width: 100%;
+    text-align: right;
+    font-weight: 700;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.startHourF{
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'lato';
+    font-size: 14px;
+    width: 40px;
+    margin-right: 10px;
+}
+.lineSeparatorHours{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 110px);
+    height: 4px;
+    border-top: 1px solid lightgray;
+    margin-top: 9px;
+    box-sizing: border-box;
+}
+.endHour{
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'lato';
+    font-size: 14px;
+    width: 40px;
+    margin-right: 10px;
+
+}
+
+.headerPickF{
+    align-items: center;
+    background-color: white;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-top: solid 4px #ad0107;
+    box-shadow: 0 2px 4px #919ba633, 0 1px 10px #919ba61f
+    ,0 4px 5px #919ba624;
+    display: flex;
+    height: 6.5rem;
+    justify-content: center;
+
+}
+
+.form-locations{
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 0.594rem;
+    padding-right: 0.75rem;
+}
+
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    font-size: 13px;
+    width: 100%;
+    height: 35px;
+    align-items: center;
+    color: gray;
+}
+
+.btn{
+    width: 90%;
+    height: 40px;
+    background-color: #c70107;
+    border: none;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+}

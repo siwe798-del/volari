@@ -1,0 +1,129 @@
+/* Payment Responsive Styles - Mobile First Approach */
+
+/* Root container adjustments for fluid width */
+.payment-page-root .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+/* Fluid Typography & Spacing using REM */
+.payment-page-root .fs-1 {
+    font-size: 1.75rem; /* ~28px */
+}
+
+.payment-page-root .fs-2 {
+    font-size: 1.5rem; /* ~24px */
+}
+
+.payment-page-root .fs-3 {
+    font-size: 1.25rem; /* ~20px */
+}
+
+/* Layout Responsiveness */
+.payment-page-root .payment-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Payment Form & Summary Containers */
+.payment-page-root .payment-form, 
+.payment-page-root .payment-summary {
+    width: 100%;
+}
+
+.payment-page-root .card-box {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.5rem; /* ~24px */
+}
+
+/* Form Elements Fluidity */
+.payment-page-root .input-field, 
+.payment-page-root .select-container select {
+    width: 100%;
+    height: 3rem; /* ~48px for better touch target */
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.payment-page-root .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Responsive Breakpoints */
+
+/* Tablet (md) */
+@media (min-width: 768px) {
+    .payment-page-root .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .payment-page-root .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop (lg) */
+@media (min-width: 1024px) {
+    .payment-page-root .payment-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .payment-page-root .payment-form {
+        flex: 2; /* Takes 2/3 space */
+        min-width: 0; /* Prevents flex item overflow */
+    }
+
+    .payment-page-root .payment-summary {
+        flex: 1; /* Takes 1/3 space */
+        min-width: 0;
+        position: sticky;
+        top: 2rem;
+    }
+}
+
+/* Large Desktop (xl) */
+@media (min-width: 1440px) {
+    .payment-page-root .container {
+        max-width: 1400px;
+    }
+}
+
+/* Specific Fixes for Overflow Prevention */
+.payment-page-root * {
+    max-width: 100%;
+}
+
+/* Ensure images/svgs don't overflow */
+.payment-page-root img,
+.payment-page-root svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Bank Select Specific Styles */
+.bank-select-container {
+    margin-bottom: 1.5rem;
+}
+
+/* Button Responsiveness */
+.btn-success {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.125rem;
+    white-space: normal; /* Allow text wrapping on small screens */
+    line-height: 1.2;
+}

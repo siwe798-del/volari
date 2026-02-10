@@ -1,0 +1,17 @@
+.c343cea71 {
+  display: flex;
+  position: relative;
+  padding: 0 10px;
+  background: #2ecc71;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  font-family: inherit;
+  height: 52px;
+  border: 1px solid #28ac5a;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  outline: 0;
+  transition: box-shadow .15s ease-in-out,background-color .15s ease-in-out;
+}

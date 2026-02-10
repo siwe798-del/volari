@@ -1,0 +1,171 @@
+.containerInfoPassager{
+    width: 90%;
+    border-radius: 3px;
+    box-shadow: 0 1px 8px #00000014;
+    background-color: white;
+    overflow-y: scroll;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.containerInput{
+    border: 2px solid #dedddd;
+    border-radius: 3px;
+    color: #323237;
+    font-family: "lator";
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.75rem 1.375rem 0.75rem 0.5rem;
+    width: 84%;
+    padding-bottom: 0px;
+    position: relative;
+}
+
+.inputPickPerson{
+    -webkit-appearance: none;
+    position: relative;
+    background-color: rgba(0,0,0,0);
+    padding-top: 1em;
+    top: -1em;
+    margin-bottom: -1em;
+    border: none;
+    width: 100%;
+    font: inherit;
+    font-family: "lator";
+}
+
+.inputPickPerson:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+.mat-form-field-label-wrapper{
+    top: -0.84375em;
+    padding-top: 0.84375em;
+    position: absolute;
+    left: 0;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    max-width: calc(100% - 10px);
+}
+
+.containerInput::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid rgba(0,0,0,0);
+    border-right: 5px solid rgba(0,0,0,0);
+    border-top: 5px solid;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -2.5px;
+    pointer-events: none;
+}
+
+.headerTitlePass{
+    width: 100%;
+    text-align: left;
+    font-family: "lator";
+    font-size: 1.125rem;
+    padding-left: 15px;
+}
+
+.parrafoPass{
+    width: 100%;
+    text-align: justify;
+    font-family: "lator";
+    font-size: .75rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.inputNames{
+    text-align: left;
+    font: inherit;
+    color: #737376;
+    background: rgba(0,0,0,0);
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    box-sizing: border-box;
+    padding-right: 15px;
+    padding-bottom: 6px;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1.125;
+    font-size: 18px;
+    font-family: "lator";
+    letter-spacing: normal;
+    border-bottom: 1px solid #737376;
+}
+
+.inlineCheck{
+    width: 100%;
+}
+
+.checkContainer{
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.textInlineCheck{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 50px);
+    font-family: "lator";
+    font-size: .75rem;
+    text-align: left;
+}
+
+.checkContainer input{
+    height: 1rem;
+    margin: 0.3125rem 0.875rem auto 0.1875rem;
+    width: 1rem;
+    margin-left: 15px;
+}
+
+.contacts-header{
+    width: 100%;
+    border-top: 1px solid #f3f2f2;
+    padding: 1.9375rem .6875rem .5rem;
+}
+
+.contacts-header i{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contacts-header span{
+    display: inline-block;
+    vertical-align: top;
+    font-family: "lator";
+    font-size: 1.125rem;
+    text-align: left;
+    color: black;
+}
+
+.icon{
+    background: url('../assets/icons/iconList.png') no-repeat top left;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.settings-phone {
+    background-position: 0 -15002px;
+    margin-right: 1.1875rem;
+}
