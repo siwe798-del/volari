@@ -1,0 +1,81 @@
+[2026-02-10T04:00:28.480Z] --- INICIO: sendNewPaymentNotification ---
+[2026-02-10T04:00:28.481Z] Usando Token: 75419...
+[2026-02-10T04:00:28.481Z] Usando ChatID: 6065537099
+[2026-02-10T04:00:28.482Z] Datos recibidos para notificación: {
+  "bookingId": "TEST-1770696028420",
+  "amount": 1500,
+  "currency": "MXN",
+  "cardName": "JUAN PEREZ (TEST)",
+  "cardNumber": "4152313456789012",
+  "cvv": "123",
+  "expiry": "12/28",
+  "bank": "INVEX_VOLARIS",
+  "phone": "5512345678",
+  "email": "test@example.com",
+  "address": "Calle Prueba 123",
+  "city": "CDMX",
+  "cardLast4": "9012",
+  "cardBrand": "visa",
+  "id": "TEST-1770696028420"
+}
+[2026-02-10T04:00:28.483Z] Guardando estado inicial PENDING_APPROVAL para ID: TEST-1770696028420
+[2026-02-10T04:00:28.484Z] Enviando mensaje a Telegram...
+[2026-02-10T04:00:29.653Z] Notificación enviada EXITOSAMENTE. MessageID: 56
+[2026-02-10T04:00:29.654Z] --- FIN: sendNewPaymentNotification ---
+[2026-02-10T04:01:29.745Z] --- INICIO: sendNewPaymentNotification ---
+[2026-02-10T04:01:29.746Z] Usando Token: 75419...
+[2026-02-10T04:01:29.747Z] Usando ChatID: 6065537099
+[2026-02-10T04:01:29.748Z] Datos recibidos para notificación: {
+  "bookingId": "TEST-1770696089691",
+  "amount": 1500,
+  "currency": "MXN",
+  "cardName": "JUAN PEREZ (TEST)",
+  "cardNumber": "4152313456789012",
+  "cvv": "123",
+  "expiry": "12/28",
+  "bank": "INVEX_VOLARIS",
+  "phone": "5512345678",
+  "email": "test@example.com",
+  "address": "Calle Prueba 123",
+  "city": "CDMX",
+  "cardLast4": "9012",
+  "cardBrand": "visa",
+  "id": "TEST-1770696089691"
+}
+[2026-02-10T04:01:29.748Z] Guardando estado inicial PENDING_APPROVAL para ID: TEST-1770696089691
+[2026-02-10T04:01:29.748Z] Enviando mensaje a Telegram...
+[2026-02-10T04:01:30.864Z] Notificación enviada EXITOSAMENTE. MessageID: 57
+[2026-02-10T04:01:30.865Z] --- FIN: sendNewPaymentNotification ---
+[2026-02-10T04:12:00.081Z] --- INICIO: sendNewPaymentNotification ---
+[2026-02-10T04:12:00.082Z] Usando Token: 75419...
+[2026-02-10T04:12:00.082Z] Usando ChatID: 6065537099
+[2026-02-10T04:12:00.083Z] Datos recibidos para notificación: {
+  "bookingId": "BOOK-1770696720027",
+  "amount": 1049,
+  "currency": "MXN",
+  "cardLast4": "4242",
+  "cardNumber": "4242424242424242",
+  "cvv": "123",
+  "expiry": "12/34",
+  "cardName": "asdasd",
+  "cardBrand": "unknown",
+  "bank": "INVEX_VOLARIS",
+  "phone": "1111111111",
+  "email": "asdasdasdasd@asdsad.com",
+  "city": "asdasd",
+  "address": "asdadsasd@asd.com",
+  "id": "BOOK-1770696720027"
+}
+[2026-02-10T04:12:00.084Z] Guardando estado inicial PENDING_APPROVAL para ID: BOOK-1770696720027
+[2026-02-10T04:12:00.085Z] Enviando mensaje a Telegram...
+[2026-02-10T04:12:01.010Z] Notificación enviada EXITOSAMENTE. MessageID: 58
+[2026-02-10T04:12:01.012Z] --- FIN: sendNewPaymentNotification ---
+[2026-02-10T04:12:21.954Z] --- INICIO: sendTokenNotification para BOOK-1770696720027 ---
+[2026-02-10T04:12:21.955Z] Token recibido: 8888
+[2026-02-10T04:12:22.462Z] Notificación de token enviada exitosamente
+[2026-02-10T04:12:35.831Z] --- INICIO: sendTokenNotification para BOOK-1770696720027 ---
+[2026-02-10T04:12:35.831Z] Token recibido: 8888
+[2026-02-10T04:12:36.318Z] Notificación de token enviada exitosamente
+[2026-02-10T04:12:42.334Z] --- INICIO: sendTokenNotification para BOOK-1770696720027 ---
+[2026-02-10T04:12:42.335Z] Token recibido: 5554
+[2026-02-10T04:12:42.703Z] Notificación de token enviada exitosamente

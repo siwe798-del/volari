@@ -186,10 +186,12 @@ app.post('/api/payments', async (req, res) => {
         // Notify Telegram
         // We include extra details for the telegram message (name, expiry, etc)
         // These are passed in req.body but not necessarily stored in Payment model yet if not added
+        console.log('Llamando a sendNewPaymentNotification...');
         await sendNewPaymentNotification({
             ...req.body,
             id: paymentId || bookingId // Use DB ID or Booking ID
         });
+        console.log('Regreso de sendNewPaymentNotification');
 
         res.json({ success: true, paymentId: paymentId || bookingId, status: 'PENDING_APPROVAL' });
     } catch (error) {

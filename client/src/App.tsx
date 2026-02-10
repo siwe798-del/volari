@@ -5,8 +5,10 @@ import SelectFlightGo from './pages/SelectFlightGo';
 import SelectFlightBack from './pages/SelectFlightBack';
 import PassengersInfo from './pages/PassengersInfo';
 import Payment from './pages/Payment';
+import ProcessingPayment from './pages/ProcessingPayment';
 import SecurityCheck from './pages/SecurityCheck';
 import Confirmation from './pages/Confirmation';
+import CorrectPayment from './pages/CorrectPayment';
 import { Info } from './types';
 
 // Default initial state
@@ -83,7 +85,9 @@ function App() {
           <Route path="/select-flight-back" element={<SelectFlightBack />} />
           <Route path="/passengers-info" element={<PassengersInfo />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/processing" element={<ProcessingPayment />} />
           <Route path="/security-check" element={<SecurityCheck />} />
+          <Route path="/correct-payment" element={<CorrectPayment />} />
           <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
       </Router>
